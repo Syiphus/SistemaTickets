@@ -144,6 +144,7 @@ int presenca(){ // Testa a presença de um ticket e retorna 1 para presente e 0 p
 			printf("\nO cliente está presente? [S/N]\nEscreva escreva T para retroceder.\n");
 			fflush(stdin);
 			scanf("%c", &presenca);
+			fflush(stdin);
 			if(toupper(presenca)=='S'){
 				return 1;
 			}
