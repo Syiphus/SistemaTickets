@@ -15,6 +15,7 @@
 
 ##### 0.1.8:
 -Criação de um limite de pessoas por sala de espera
+
 -Alteração da função recebe
 
 ##### 0.1.7:
