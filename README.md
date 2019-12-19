@@ -1,5 +1,8 @@
 # READ ME
 #### NOTAS DE ATUALIZAÇÃO
+##### 0.1.12:
+-Adição de função para alterar cores
+
 ##### 0.1.11:
 -Adição de obstruir a palavra passe enquanto esta é escrita
 
