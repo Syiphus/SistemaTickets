@@ -1,5 +1,9 @@
 # READ ME
 #### NOTAS DE ATUALIZAÇÃO
+##### 0.1.13:
+-Criação de menu para funcionarios
+-Separação das funções para chamar clientes e para os atender
+-criação de structs para o atendimento de clientes ( notas, preços, etc...)
 ##### 0.1.12:
 -Adição de função para alterar cores
 
