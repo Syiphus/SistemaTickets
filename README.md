@@ -1,5 +1,8 @@
 # READ ME
 #### NOTAS DE ATUALIZAÇÃO
+##### 0.1.14:
+-Melhoria da eficiencia das funcões criadas na versão anterior
+-codigos de acesso a funcoes destinadas a funcionários
 ##### 0.1.13:
 -Criação de menu para funcionarios
 -Separação das funções para chamar clientes e para os atender
