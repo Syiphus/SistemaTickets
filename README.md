@@ -1,5 +1,10 @@
 # READ ME
 #### NOTAS DE ATUALIZAÇÃO
+##### 0.1.16:
+-Distincão entre o atendimento do ticket a ou b
+-petição de informações de atendimento ao cliente que está a ser atendido
+##### 0.1.15:
+-Correção de bugs da versão anterior
 ##### 0.1.14:
 -Melhoria da eficiencia das funcões criadas na versão anterior
 -codigos de acesso a funcoes destinadas a funcionários
