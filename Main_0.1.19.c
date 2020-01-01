@@ -464,15 +464,9 @@ int main () {
 							break;
 						case 2:
 							receber(&ultimoS, balcoes, _tickets,mapa);
-							time(&segundos);
-							testehorario=localtime(&segundos);
-							if(!(testehorario->tm_hour >=8 && testehorario->tm_hour <21)) return 0;
 							break;
 						case 3:
 							atender(balcoes, _tickets, &ultimoS, &atendido, mapa);
-							time(&segundos);
-							testehorario=localtime(&segundos);
-							if(!(testehorario->tm_hour >=8 && testehorario->tm_hour <21)) return 0;
 							break;
 						case 4:
 							//gerarMapas(mapa);
