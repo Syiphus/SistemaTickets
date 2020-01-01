@@ -457,11 +457,10 @@ int main () {
 						fflush(stdin);
 						switch (menu){
 						case 1: 
-							gera(&ultimoA,&ultimoB, &ultimoS, _tickets);	
 							time(&segundos);
 							testehorario=localtime(&segundos);	 
-							if(!(testehorario->tm_hour >=8 && testehorario->tm_hour <21)) return 0;
-							break;
+							if(testehorario->tm_hour >=8 && testehorario->tm_hour <21) 	gera(&ultimoA,&ultimoB, &ultimoS, _tickets);
+							break;	
 						case 2:
 							receber(&ultimoS, balcoes, _tickets,mapa);
 							break;
