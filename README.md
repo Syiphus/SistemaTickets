@@ -1,5 +1,7 @@
 # READ ME
 #### NOTAS DE ATUALIZAÇÃO
+##### 0.1.17:
+-Adição de armazenamento e passagem de tempo entre vetores
 ##### 0.1.16:
 -Distincão entre o atendimento do ticket a ou b
 -petição de informações de atendimento ao cliente que está a ser atendido
