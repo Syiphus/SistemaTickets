@@ -60,8 +60,8 @@ void SetColor(int ForgC){ // funçao das cores da letra do terminal
 	return;
  }
  
-void gerarMapas(mapas mapa[], int *atendido, int *perdidos, int produtividade[], int flag){ //gera mapas
-	int i, contA=0, contB=0, tempoEspTotA=0, tempoEspTotB=0, tempoAtTotA=0, tempoAtTotB=0, M=0;
+void gerarMapas(mapas mapa[], int *atendido, int *perdidos, int produtividade[], int flag){ //gera mapas e guarda info no ficheiro
+	int i, contA=0, contB=0, tempoEspTotA=0, tempoEspTotB=0, tempoAtTotA=0, tempoAtTotB=0, M=0, m=0;
 	time_t segundos;
 	time(&segundos);
 	horas=localtime(&segundos);
@@ -91,7 +91,6 @@ void gerarMapas(mapas mapa[], int *atendido, int *perdidos, int produtividade[],
 		}
 		printf("%d do tipo A e %d do tipo B.\n", contA, contB);
 		if(contA>0){
-			printf("%d", tempoEspTotA);
 			printf("\nTempos de espera\n\nO tempo médio de espera dos tickets do tipo A é de: %d segundos.",  tempoEspTotA/contA);
 		}
 		if(contB>0){
@@ -135,13 +134,15 @@ void gerarMapas(mapas mapa[], int *atendido, int *perdidos, int produtividade[],
 			}
 			printf("\nPrefazendo um total de lucros de %.2f.\n", lucro);
 		}
-		produtividade[M]=produtividade[0];
+		M=produtividade[0];
+		m=1;
 		for(i=1;i<4;i++){
-			if(produtividade[i]>produtividade[M]){
-				produtividade[M]=produtividade[i];
+			if(produtividade[i]>M){
+				M=produtividade[i];
+				m=i;
 			}
 		}
-		printf("\nO balcão mais produtivo foi o %d, tendo atendido %d clientes.\n", M+1, produtividade[M]);
+		printf("\nO balcão mais produtivo foi o %d, tendo atendido %d clientes.\n", m+1, M);
 	}
 	else{
 		if(flag==1){
