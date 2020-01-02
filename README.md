@@ -1,19 +1,37 @@
 # READ ME
 #### NOTAS DE ATUALIZAÇÃO
+##### 0.2.0:
+-criação da função gerarMapas que apresenta diversas informações
+
+##### 0.1.19:
+-Adição dos tempos ao vetor gue gerará mapas
+
+##### 0.1.18:
+-Correção de bugs da versao anterior
+
 ##### 0.1.17:
 -Adição de armazenamento e passagem de tempo entre vetores
+
 ##### 0.1.16:
 -Distincão entre o atendimento do ticket a ou b
+
 -petição de informações de atendimento ao cliente que está a ser atendido
+
 ##### 0.1.15:
 -Correção de bugs da versão anterior
+
 ##### 0.1.14:
 -Melhoria da eficiencia das funcões criadas na versão anterior
+
 -codigos de acesso a funcoes destinadas a funcionários
+
 ##### 0.1.13:
 -Criação de menu para funcionarios
+
 -Separação das funções para chamar clientes e para os atender
+
 -criação de structs para o atendimento de clientes ( notas, preços, etc...)
+
 ##### 0.1.12:
 -Adição de função para alterar cores
 
