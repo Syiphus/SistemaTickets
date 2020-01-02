@@ -498,7 +498,7 @@ void atender(int balcoes[], ticket _tickets[], int *ultimoS, int *atendido, mapa
 }
 
 int main () {
-	int i, menu, n, ultimoA=0, ultimoB=0, ultimoS=0, balcoes[4],atendido=0, perdidos=0, produtividade[4], fag=0;
+	int i, menu, n, ultimoA=0, ultimoB=0, ultimoS=0, balcoes[4],atendido=0, perdidos=0, produtividade[4], flag=0;
 	for(i=0;i<4;i++) balcoes[i]=0;
 	for(i=0;i<4;i++) produtividade[i]=0;
 	char username[strlen(USERNAME)], pass[strlen(PASS)];
