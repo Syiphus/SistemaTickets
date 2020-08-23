@@ -16,7 +16,7 @@
 #define HOR_ABERTURA 8
 #define HOR_FECHO 21
 
-// Diogo - 454 ----- ¬ngelo - 532 -------- Tiago - 608
+// Diogo - 454 ----- √Çngelo - 532 -------- Tiago - 608
  
 typedef struct ticket {
 	int num;
@@ -71,10 +71,10 @@ void gerarMapas(mapas mapa[], int *atendido, int *perdidos, int produtividade[],
 	horas=localtime(&segundos);
 	float lucro=0, ValorEmEquipamentos=0;
 	if(flag==1){
-		printf("\n___________________\nRelatÛrio do dia de hoje\n");
+		printf("\n___________________\nRelat√≥rio do dia de hoje\n");
 	}
 	else{
-		printf("\n___________________\nRelatÛrio atÈ ao momento");
+		printf("\n___________________\nRelat√≥rio at√© ao momento");
 	}
 	printf("\nForam perdidos %d tickets.\n", *perdidos);
 	if(*atendido>0){
@@ -84,7 +84,7 @@ void gerarMapas(mapas mapa[], int *atendido, int *perdidos, int produtividade[],
 			printf("\nForam atendidos %d tickets.\n", *atendido);
 		}
 		else{
-			printf("\nAtÈ ‡s %d:%d:%d foram atendidos %d tickets: ", horas->tm_hour,horas->tm_min,horas->tm_sec,*atendido);//meter o tempo atual aqui
+			printf("\nAt√© √†s %d:%d:%d foram atendidos %d tickets: ", horas->tm_hour,horas->tm_min,horas->tm_sec,*atendido);//meter o tempo atual aqui
 		}
 		for(i=0;i<*atendido; i++){
 			if(mapa[i].tik=='A'){
@@ -101,10 +101,10 @@ void gerarMapas(mapas mapa[], int *atendido, int *perdidos, int produtividade[],
 		if(contB==0) contB=-1;
 		if (contA==0) contA=-1;
 		printf(" %d do tipo A e %d do tipo B\n", contA, contB);
-		printf("\nTempos de espera\n\nO tempo mÈdio de espera dos tickets do tipo A È de: %d\nO tempo mÈdio de espera dos tickets do tipo B È de: %d\nO tempo total mÈdio de espera È de: %d\n", tempoEspTotA/contA, tempoEspTotB/contB, (tempoEspTotA+tempoEspTotB)/contA+contB);
+		printf("\nTempos de espera\n\nO tempo m√©dio de espera dos tickets do tipo A √© de: %d\nO tempo m√©dio de espera dos tickets do tipo B √© de: %d\nO tempo total m√©dio de espera √© de: %d\n", tempoEspTotA/contA, tempoEspTotB/contB, (tempoEspTotA+tempoEspTotB)/contA+contB);
 		system("pause");
-		printf("\nTempos de atendimento\nO tempo mÈdio de atendimento dos clientes do tipo A È de: %d\nO tempo mÈdio de atendimento dos clientes do tipo B È de: %d\nO tempo total mÈdio do atendimento È de: %d\n", tempoAtTotA/contA, tempoAtTotB/contB, (tempoAtTotA+tempoAtTotB)/contA+contB);
-		printf("\nForam entregues os seguintes equipamentos para reparaÁ„o:\n");
+		printf("\nTempos de atendimento\nO tempo m√©dio de atendimento dos clientes do tipo A √© de: %d\nO tempo m√©dio de atendimento dos clientes do tipo B √© de: %d\nO tempo total m√©dio do atendimento √© de: %d\n", tempoAtTotA/contA, tempoAtTotB/contB, (tempoAtTotA+tempoAtTotB)/contA+contB);
+		printf("\nForam entregues os seguintes equipamentos para repara√ß√£o:\n");
 		for(i=0;i<*atendido; i++){
 			if(mapa[i].tik=='A'){
 				printf("- %s no valor de: %.2f\n", mapa[i].equipamento, mapa[i].valor);
@@ -126,15 +126,15 @@ void gerarMapas(mapas mapa[], int *atendido, int *perdidos, int produtividade[],
 				produtividade[M]=produtividade[i];
 			}
 		}
-		printf("\nO balc„o mais produtivo foi o %d, tendo atendido %d clientes.\n", M+1, produtividade[M]);
+		printf("\nO balc√£o mais produtivo foi o %d, tendo atendido %d clientes.\n", M+1, produtividade[M]);
 	}
 	else{
 		SetColor(4);
-		printf("\nNo dia de hoje ainda n„o foi atendido nenhum cliente.\n");
+		printf("\nNo dia de hoje ainda n√£o foi atendido nenhum cliente.\n");
 		SetColor(15);
 	}
 	printf("\nMapas totais:\n");
-	//informacao total proveniente do ficheiro È apresentada aqui; testar se È a primeira vez devendo dizer que È o primeiro dia
+	//informacao total proveniente do ficheiro √© apresentada aqui; testar se √© a primeira vez devendo dizer que √© o primeiro dia
 }
  
 void gera(int *ultimoA, int *ultimoB, int *ultimoS, ticket _tickets[]){ //gera tickets do tipo a e b
@@ -142,7 +142,7 @@ void gera(int *ultimoA, int *ultimoB, int *ultimoS, ticket _tickets[]){ //gera t
 	time_t segundos;
 	if(*ultimoS<MAX){
 		do{
-			printf("\n___________________\nGerar Tickets\n\nTipo de Ticket\n1. ReparaÁ„o.\n2. Entrega.\n3. Retroceder\n___________________\n");
+			printf("\n___________________\nGerar Tickets\n\nTipo de Ticket\n1. Repara√ß√£o.\n2. Entrega.\n3. Retroceder\n___________________\n");
 			scanf("%d", &menu);
 			switch (menu){
 				case 1:
@@ -154,7 +154,7 @@ void gera(int *ultimoA, int *ultimoB, int *ultimoS, ticket _tickets[]){ //gera t
 					time(&segundos);
 					_tickets[*ultimoS].segs=segundos;
 					_tickets[*ultimoS]._hora=localtime(&segundos);
-					printf("O seu ticket È A%d.\n",_tickets[*ultimoS].num);
+					printf("O seu ticket √© A%d.\n",_tickets[*ultimoS].num);
 					*ultimoS=*ultimoS+1;
 					break;
 				case 2:
@@ -166,14 +166,14 @@ void gera(int *ultimoA, int *ultimoB, int *ultimoS, ticket _tickets[]){ //gera t
 					time(&segundos);
 					_tickets[*ultimoS].segs=segundos;
 					_tickets[*ultimoS]._hora=localtime(&segundos);
-					printf("O seu ticket È B%d.\n",_tickets[*ultimoS].num);
+					printf("O seu ticket √© B%d.\n",_tickets[*ultimoS].num);
 					*ultimoS=*ultimoS+1;
 					break;
 				case 3:
 					break;
 				default:
 					SetColor(4);
-					printf("\nEscolha inv·lida.\n");
+					printf("\nEscolha inv√°lida.\n");
 					fflush(stdin);
 					SetColor(15);
 			}
@@ -187,7 +187,7 @@ void gera(int *ultimoA, int *ultimoB, int *ultimoS, ticket _tickets[]){ //gera t
 	}
 }
 
-int escolheBalcao(int balcoes[]){ // retorna que balc„o est· livre, -1 se estiverem todos ocupados
+int escolheBalcao(int balcoes[]){ // retorna que balc√£o est√° livre, -1 se estiverem todos ocupados
 	int i;
 	for(i=0;i<4;i++){
 		if(balcoes[i]==0){
@@ -216,25 +216,25 @@ void receber(int *ultimoS, int balcoes[], ticket _tickets[],mapas mapa[], int *p
 		do{
 			balcaoEscolhido=escolheBalcao(balcoes);
 			if(balcaoEscolhido!=-1){
-				printf("\nDigite o cÛdigo do funcion·rio: ");
+				printf("\nDigite o c√≥digo do funcion√°rio: ");
 				fflush(stdin);
 				scanf("%[^\n]", codigo);
 				fflush(stdin);
 				if(strcmp(codigo, CODIGORECEBE)==0){
 					SetColor(10);
-					printf("\nFuncion·rio reconhecido\n");
+					printf("\nFuncion√°rio reconhecido\n");
 					SetColor(15);
 					for(i=0;i<*ultimoS;i++){
 						if(_tickets[i].atendido<3){
 							if(_tickets[i].recebido==1){
 								if(!(_tickets[i].letra=='B' && balcaoEscolhido+1==4)){
-									printf("\nO prÛximo ticket a ser atendido È o: %c%d\nBalc„o: %d", _tickets[i].letra, _tickets[i].num, balcaoEscolhido+1);
+									printf("\nO pr√≥ximo ticket a ser atendido √© o: %c%d\nBalc√£o: %d", _tickets[i].letra, _tickets[i].num, balcaoEscolhido+1);
 									_presenca=presenca();
-									if(_presenca==0){ //n„o est· presente
+									if(_presenca==0){ //n√£o est√° presente
 										_tickets[i].atendido++;
 									}
 									else{
-										if(_presenca==1){ //est· presente
+										if(_presenca==1){ //est√° presente
 											balcoes[balcaoEscolhido]=1;
 											_tickets[i].balcao=balcaoEscolhido;
 											_tickets[i].recebido=0;
@@ -262,14 +262,14 @@ void receber(int *ultimoS, int balcoes[], ticket _tickets[],mapas mapa[], int *p
 				}
 				else{
 					SetColor(4);
-					printf("\nFuncion·rio n„o reconhecido\n");
+					printf("\nFuncion√°rio n√£o reconhecido\n");
 					SetColor(15);
 					break;
 				}
 			}
 			else{
 				SetColor(4);
-				printf("Balcıes  cheios, atenda clientes primeiro.\n");
+				printf("Balc√µes  cheios, atenda clientes primeiro.\n");
 				SetColor(15);
 				erro=0;
 				break;
@@ -283,11 +283,11 @@ void receber(int *ultimoS, int balcoes[], ticket _tickets[],mapas mapa[], int *p
 	}
 }
 
-int presenca(){ // Testa a presenÁa de um ticket e retorna 1 para presente e 0 para ausente
+int presenca(){ // Testa a presen√ßa de um ticket e retorna 1 para presente e 0 para ausente
 	int i;
 	char presenca;
 		do{
-			printf("\nO cliente est· presente? [S/N]\nEscreva escreva T para retroceder.\n");
+			printf("\nO cliente est√° presente? [S/N]\nEscreva escreva T para retroceder.\n");
 			fflush(stdin);
 			scanf("%c", &presenca);
 			fflush(stdin);
@@ -308,7 +308,7 @@ int presenca(){ // Testa a presenÁa de um ticket e retorna 1 para presente e 0 p
 		}while(toupper(presenca)!='S'||toupper(presenca)!='N'||toupper(presenca)!='T');
 }
 
-void atender(int balcoes[], ticket _tickets[], int *ultimoS, int *atendido, mapas mapa[], int produtividade[]){ //atende clientes, preenchendo o struct dos mapas, e liberando balcıes
+void atender(int balcoes[], ticket _tickets[], int *ultimoS, int *atendido, mapas mapa[], int produtividade[]){ //atende clientes, preenchendo o struct dos mapas, e liberando balc√µes
 	char codigo[strlen(CODIGOATENDE)];
 	int balcaoAT, menu, i, erro=1, erro1=1, contador=0;
 	time_t segundos;
@@ -319,15 +319,15 @@ void atender(int balcoes[], ticket _tickets[], int *ultimoS, int *atendido, mapa
 	}
 	if(contador!=0){
 		do{
-			printf("\nDigite o cÛdigo de funcion·rio: ");
+			printf("\nDigite o c√≥digo de funcion√°rio: ");
 			fflush(stdin);
 			scanf("%[^\n]", codigo);
 			fflush(stdin);
 			if(strcmp(codigo, CODIGOATENDE)==0){
 				SetColor(10);
-				printf("\nFuncion·rio reconhecido.\n");
+				printf("\nFuncion√°rio reconhecido.\n");
 				SetColor(15);
-				printf("\nQue balc„o pretende atender? (0 para sair.) ");
+				printf("\nQue balc√£o pretende atender? (0 para sair.) ");
 				fflush(stdin);
 				scanf("%d", &balcaoAT);
 				fflush(stdin);
@@ -352,7 +352,7 @@ void atender(int balcoes[], ticket _tickets[], int *ultimoS, int *atendido, mapa
 							if(_tickets[i].letra=='A'){
 								do{
 									printf("esta a atender o ticket %c%d",_tickets[i].letra,_tickets[i].num);
-									printf("\nMENU\n\n1.Equipamento\n2.Valor do equipamento\n3.Principal defeito\n4.ObservaÁıes\n5.Terminar atendimento\n");
+									printf("\nMENU\n\n1.Equipamento\n2.Valor do equipamento\n3.Principal defeito\n4.Observa√ß√µes\n5.Terminar atendimento\n");
 									menu=-1;
 									fflush(stdin);
 									scanf("%d", &menu);
@@ -374,7 +374,7 @@ void atender(int balcoes[], ticket _tickets[], int *ultimoS, int *atendido, mapa
 												fflush(stdin);
 												if(&mapa[*atendido].valor<0){
 													SetColor(4);
-													printf("\nValor inv·lido\n");
+													printf("\nValor inv√°lido\n");
 													SetColor(15);
 												}
 											}while(mapa[*atendido].valor<0);
@@ -387,7 +387,7 @@ void atender(int balcoes[], ticket _tickets[], int *ultimoS, int *atendido, mapa
 											fflush(stdin);
 											break;
 										case 4:
-											printf("\nObservaÁıes: ");
+											printf("\nObserva√ß√µes: ");
 										
 											fflush(stdin);
 											scanf("%50[^\n]", mapa[*atendido].obs);
@@ -416,7 +416,7 @@ void atender(int balcoes[], ticket _tickets[], int *ultimoS, int *atendido, mapa
 											break;
 										default:
 											SetColor(4);
-											printf("\nEscolha inv·lida\n");
+											printf("\nEscolha inv√°lida\n");
 											SetColor(15);
 									}
 								}while(erro==1);
@@ -424,7 +424,7 @@ void atender(int balcoes[], ticket _tickets[], int *ultimoS, int *atendido, mapa
 							else{
 								do{
 									printf("esta a atender o ticket %c%d",_tickets[i].letra,_tickets[i].num);
-									printf("\nMENU\n\n1.Mercadoria a entregar\n2.CondiÁıes da mercadoria\n3.Valor a pagar\n4.Terminar atendimento\n");
+									printf("\nMENU\n\n1.Mercadoria a entregar\n2.Condi√ß√µes da mercadoria\n3.Valor a pagar\n4.Terminar atendimento\n");
 									menu=-1;
 									fflush(stdin);
 									scanf("%d", &menu);
@@ -437,7 +437,7 @@ void atender(int balcoes[], ticket _tickets[], int *ultimoS, int *atendido, mapa
 											fflush(stdin);
 											break;
 										case 2:
-											printf("\nCondiÁıes da mercadoria: ");
+											printf("\nCondi√ß√µes da mercadoria: ");
 												fflush(stdin);
 												scanf("%50[^\n]", mapa[*atendido].defeito);
 												fflush(stdin);
@@ -452,7 +452,7 @@ void atender(int balcoes[], ticket _tickets[], int *ultimoS, int *atendido, mapa
 												fflush(stdin);
 												if(mapa[*atendido].valor<0){
 													SetColor(4);
-													printf("\nValor inv·lido\n");
+													printf("\nValor inv√°lido\n");
 													SetColor(15);
 												}
 											}while(mapa[*atendido].valor<0);
@@ -477,7 +477,7 @@ void atender(int balcoes[], ticket _tickets[], int *ultimoS, int *atendido, mapa
 											break;
 										default:
 											SetColor(4);
-											printf("Escolha inv·lida");
+											printf("Escolha inv√°lida");
 											SetColor(15);
 									}
 								}while(erro==1);	
@@ -485,21 +485,21 @@ void atender(int balcoes[], ticket _tickets[], int *ultimoS, int *atendido, mapa
 						}
 						else{
 							SetColor(4);
-							printf("\nBalc„o vazio\n");
+							printf("\nBalc√£o vazio\n");
 							SetColor(15);
 							break;
 						}
 					}
 					else{
 						SetColor(4);
-						printf("\nBalc„o inv·lido.\n");
+						printf("\nBalc√£o inv√°lido.\n");
 						SetColor(15);
 					}
 				}
 			}
 			else{
 				SetColor(4);
-				printf("\nFuncion·rio n„o reconhecido\n");
+				printf("\nFuncion√°rio n√£o reconhecido\n");
 				SetColor(15);
 				break;
 			}
@@ -524,7 +524,7 @@ int main () {
 	ticket _tickets[MAX];
 	setlocale(LC_ALL,"Portuguese");
 	if(testehorario->tm_hour >=HOR_ABERTURA && testehorario->tm_hour <HOR_FECHO){
-		printf("Sistema autom·tico de senhas,\nFaÁa login no sistema\nDigite 'sair' no username ou na password para sair \n");
+		printf("Sistema autom√°tico de senhas,\nFa√ßa login no sistema\nDigite 'sair' no username ou na password para sair \n");
 		do{	
 			printf("\nUsername: ");
 			fflush(stdin);
@@ -571,7 +571,7 @@ int main () {
 								}
 								else{
 									SetColor(4);
-									printf("\nFora do Hor·rio de Trabalho. N„o se geram mais tickets.\n");
+									printf("\nFora do Hor√°rio de Trabalho. N√£o se geram mais tickets.\n");
 									SetColor(15);
 								}
 								break;	
@@ -590,14 +590,14 @@ int main () {
 								gerarMapas(mapa, &atendido, &perdidos, produtividade, flag);
 								return 0;
 							case 6:
-								printf("Tickets ‡ espera:\n");
+								printf("Tickets √† espera:\n");
 								for(i=0;i<ultimoS;i++)
 								{
 									printf("%c%d Hora criado: %d:%d:%d\n",_tickets[i].letra,_tickets[i].num,_tickets[i]._hora->tm_hour,_tickets[i]._hora->tm_min,_tickets[i]._hora->tm_sec);
 								}
 							default:
 								SetColor(4);
-								printf("\nEscolha inv·lida.\n");
+								printf("\nEscolha inv√°lida.\n");
 								fflush(stdin);
 								SetColor(15);
 							}
@@ -605,21 +605,21 @@ int main () {
 					}
 					else{
 							SetColor(4);
-							printf("\n\nPassWord inv·lida.\n");
+							printf("\n\nPassWord inv√°lida.\n");
 							SetColor(15);
 					}
 				}while(1);
 			}
 			else{
 					SetColor(4);
-					printf("\nUsername inv·lido.\n");
+					printf("\nUsername inv√°lido.\n");
 					SetColor(15);
 			}
 		}while(1);
 	}
 	else{
 		SetColor(4);
-		printf("Fora do Hor·rio de Trabalho");
+		printf("Fora do Hor√°rio de Trabalho");
 		SetColor(15);
 	}
 	return 0;
