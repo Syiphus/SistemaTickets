@@ -14,7 +14,7 @@
 #define CODIGOATENDE "aten"
 #define CODIGORECEBE "rece"
 
-// Diogo - 454 ----- Ângelo - 532 -------- Tiago - 608
+// Diogo - 454 ----- Ã‚ngelo - 532 -------- Tiago - 608
  
 typedef struct ticket {
 	int num;
@@ -70,7 +70,7 @@ void gera(int *ultimoA, int *ultimoB, int *ultimoS, ticket _tickets[]){ //gera t
 	time_t segundos;
 	if(*ultimoS<MAX){
 		do{
-			printf("\n___________________\nGerar Tickets\n\nTipo de Ticket\n1. Reparação.\n2. Entrega.\n3. Retroceder\n___________________\n");
+			printf("\n___________________\nGerar Tickets\n\nTipo de Ticket\n1. ReparaÃ§Ã£o.\n2. Entrega.\n3. Retroceder\n___________________\n");
 			scanf("%d", &menu);
 			switch (menu){
 				case 1:
@@ -82,7 +82,7 @@ void gera(int *ultimoA, int *ultimoB, int *ultimoS, ticket _tickets[]){ //gera t
 					time(&segundos);
 					_tickets[*ultimoS].segs=segundos;
 					_tickets[*ultimoS]._hora=localtime(&segundos);
-					printf("O seu ticket é A%d.\n",_tickets[*ultimoS].num);
+					printf("O seu ticket Ã© A%d.\n",_tickets[*ultimoS].num);
 					*ultimoS=*ultimoS+1;
 					break;
 				case 2:
@@ -94,14 +94,14 @@ void gera(int *ultimoA, int *ultimoB, int *ultimoS, ticket _tickets[]){ //gera t
 					time(&segundos);
 					_tickets[*ultimoS].segs=segundos;
 					_tickets[*ultimoS]._hora=localtime(&segundos);
-					printf("O seu ticket é B%d.\n",_tickets[*ultimoS].num);
+					printf("O seu ticket Ã© B%d.\n",_tickets[*ultimoS].num);
 					*ultimoS=*ultimoS+1;
 					break;
 				case 3:
 					break;
 				default:
 					SetColor(4);
-					printf("\nEscolha inválida.\n");
+					printf("\nEscolha invÃ¡lida.\n");
 					fflush(stdin);
 					SetColor(15);
 			}
@@ -115,7 +115,7 @@ void gera(int *ultimoA, int *ultimoB, int *ultimoS, ticket _tickets[]){ //gera t
 	}
 }
 
-int escolheBalcao(int balcoes[]){ // retorna que balcão está livre, -1 se estiverem todos ocupados
+int escolheBalcao(int balcoes[]){ // retorna que balcÃ£o estÃ¡ livre, -1 se estiverem todos ocupados
 	int i;
 	for(i=0;i<4;i++){
 		if(balcoes[i]==0){
@@ -145,25 +145,25 @@ void receber(int *ultimoS, int balcoes[], ticket _tickets[],mapas mapa[]){ // oc
 		do{
 			balcaoEscolhido=escolheBalcao(balcoes);
 			if(balcaoEscolhido!=-1){
-				printf("\nDigite o código do funcionário: ");
+				printf("\nDigite o cÃ³digo do funcionÃ¡rio: ");
 				fflush(stdin);
 				scanf("%[^\n]", codigo);
 				fflush(stdin);
 				if(strcmp(codigo, CODIGORECEBE)==0){
 					SetColor(10);
-					printf("\nFuncionário reconhecido\n");
+					printf("\nFuncionÃ¡rio reconhecido\n");
 					SetColor(15);
 					for(i=0;i<*ultimoS;i++){
 						if(_tickets[i].atendido<3){
 							if(_tickets[i].recebido==1){
 								if(!(_tickets[i].letra=='B' && balcaoEscolhido+1==4)){
-									printf("\nO próximo ticket a ser atendido é o: %c%d\nBalcão: %d", _tickets[i].letra, _tickets[i].num, balcaoEscolhido+1);
+									printf("\nO prÃ³ximo ticket a ser atendido Ã© o: %c%d\nBalcÃ£o: %d", _tickets[i].letra, _tickets[i].num, balcaoEscolhido+1);
 									_presenca=presenca();
-									if(_presenca==0){ //não está presente
+									if(_presenca==0){ //nÃ£o estÃ¡ presente
 										_tickets[i].atendido++;
 									}
 									else{
-										if(_presenca==1){ //está presente
+										if(_presenca==1){ //estÃ¡ presente
 											balcoes[balcaoEscolhido]=1;
 											_tickets[i].balcao=balcaoEscolhido;
 											_tickets[i].recebido=0;
@@ -194,14 +194,14 @@ void receber(int *ultimoS, int balcoes[], ticket _tickets[],mapas mapa[]){ // oc
 				}
 				else{
 					SetColor(4);
-					printf("\nFuncionário não reconhecido\n");
+					printf("\nFuncionÃ¡rio nÃ£o reconhecido\n");
 					SetColor(15);
 					break;
 				}
 			}
 			else{
 				SetColor(4);
-				printf("Balcões  cheios, atenda clientes primeiro.\n");
+				printf("BalcÃµes  cheios, atenda clientes primeiro.\n");
 				SetColor(15);
 				erro=0;
 				break;
@@ -215,11 +215,11 @@ void receber(int *ultimoS, int balcoes[], ticket _tickets[],mapas mapa[]){ // oc
 	}
 }
 
-int presenca(){ // Testa a presença de um ticket e retorna 1 para presente e 0 para ausente
+int presenca(){ // Testa a presenÃ§a de um ticket e retorna 1 para presente e 0 para ausente
 	int i;
 	char presenca;
 		do{
-			printf("\nO cliente está presente? [S/N]\nEscreva escreva T para retroceder.\n");
+			printf("\nO cliente estÃ¡ presente? [S/N]\nEscreva escreva T para retroceder.\n");
 			fflush(stdin);
 			scanf("%c", &presenca);
 			fflush(stdin);
@@ -240,7 +240,7 @@ int presenca(){ // Testa a presença de um ticket e retorna 1 para presente e 0 p
 		}while(toupper(presenca)!='S'||toupper(presenca)!='N'||toupper(presenca)!='T');
 }
 
-void atender(int balcoes[], ticket _tickets[], int *ultimoS, int *atendido, mapas mapa[]){ //atende clientes, preenchendo o struct dos mapas, e liberando balcões
+void atender(int balcoes[], ticket _tickets[], int *ultimoS, int *atendido, mapas mapa[]){ //atende clientes, preenchendo o struct dos mapas, e liberando balcÃµes
 	char codigo[strlen(CODIGOATENDE)];
 	int balcaoAT, menu, i, erro=1, erro1=1, contador=0;
 	time_t segundos;
@@ -251,15 +251,15 @@ void atender(int balcoes[], ticket _tickets[], int *ultimoS, int *atendido, mapa
 	}
 	if(contador!=0){
 		do{
-			printf("\nDigite o código de funcionário: ");
+			printf("\nDigite o cÃ³digo de funcionÃ¡rio: ");
 			fflush(stdin);
 			scanf("%[^\n]", codigo);
 			fflush(stdin);
 			if(strcmp(codigo, CODIGOATENDE)==0){
 				SetColor(10);
-				printf("\nFuncionário reconhecido.\n");
+				printf("\nFuncionÃ¡rio reconhecido.\n");
 				SetColor(15);
-				printf("\nQue balcão pretende atender? (0 para sair.) ");
+				printf("\nQue balcÃ£o pretende atender? (0 para sair.) ");
 				fflush(stdin);
 				scanf("%d", &balcaoAT);
 				fflush(stdin);
@@ -276,7 +276,7 @@ void atender(int balcoes[], ticket _tickets[], int *ultimoS, int *atendido, mapa
 							}
 							if(_tickets[i].letra=='A'){
 								do{
-									printf("\nMENU\n\n1.Equipamento\n2.Valor do equipamento\n3.Principal defeito\n4.Observações\n5.Terminar atendimento\n");
+									printf("\nMENU\n\n1.Equipamento\n2.Valor do equipamento\n3.Principal defeito\n4.ObservaÃ§Ãµes\n5.Terminar atendimento\n");
 									menu=-1;
 									fflush(stdin);
 									scanf("%d", &menu);
@@ -296,7 +296,7 @@ void atender(int balcoes[], ticket _tickets[], int *ultimoS, int *atendido, mapa
 												fflush(stdin);
 												if(&mapa[*atendido].valor<0){
 													SetColor(4);
-													printf("\nValor inválido\n");
+													printf("\nValor invÃ¡lido\n");
 													SetColor(15);
 												}
 											}while(mapa[*atendido].valor<0);
@@ -308,7 +308,7 @@ void atender(int balcoes[], ticket _tickets[], int *ultimoS, int *atendido, mapa
 											fflush(stdin);
 											break;
 										case 4:
-											printf("\nObservações: ");
+											printf("\nObservaÃ§Ãµes: ");
 											fflush(stdin);
 											scanf("%50[^\n]", mapa[*atendido].obs);
 											fflush(stdin);
@@ -325,7 +325,7 @@ void atender(int balcoes[], ticket _tickets[], int *ultimoS, int *atendido, mapa
 											break;
 										default:
 											SetColor(4);
-											printf("\nEscolha inválida\n");
+											printf("\nEscolha invÃ¡lida\n");
 											SetColor(15);
 									}
 									(atendido)++;	
@@ -333,14 +333,14 @@ void atender(int balcoes[], ticket _tickets[], int *ultimoS, int *atendido, mapa
 							}
 							else{
 								do{
-									printf("\nMENU\n\n1.Condições da mercadoria\n2.Valor a pagar\n3.Terminar atendimento\n");
+									printf("\nMENU\n\n1.CondiÃ§Ãµes da mercadoria\n2.Valor a pagar\n3.Terminar atendimento\n");
 									menu=-1;
 									fflush(stdin);
 									scanf("%d", &menu);
 									fflush(stdin);
 									switch(menu){
 										case 1:
-											printf("\nCondições da mercadoria: ");
+											printf("\nCondiÃ§Ãµes da mercadoria: ");
 												fflush(stdin);
 												scanf("%50[^\n]", mapa[*atendido].defeito);
 												fflush(stdin);
@@ -353,7 +353,7 @@ void atender(int balcoes[], ticket _tickets[], int *ultimoS, int *atendido, mapa
 												fflush(stdin);
 												if(&mapa[*atendido].valor<0){
 													SetColor(4);
-													printf("\nValor inválido\n");
+													printf("\nValor invÃ¡lido\n");
 													SetColor(15);
 												}
 											}while(mapa[*atendido].valor<0);
@@ -370,7 +370,7 @@ void atender(int balcoes[], ticket _tickets[], int *ultimoS, int *atendido, mapa
 											break;
 										default:
 											SetColor(4);
-											printf("Escolha inválida");
+											printf("Escolha invÃ¡lida");
 											SetColor(15);
 									}
 								}while(erro==1);	
@@ -378,21 +378,21 @@ void atender(int balcoes[], ticket _tickets[], int *ultimoS, int *atendido, mapa
 						}
 						else{
 							SetColor(4);
-							printf("\nBalcão vazio\n");
+							printf("\nBalcÃ£o vazio\n");
 							SetColor(15);
 							break;
 						}
 					}
 					else{
 						SetColor(4);
-						printf("\nBalcão inválido.\n");
+						printf("\nBalcÃ£o invÃ¡lido.\n");
 						SetColor(15);
 					}
 				}
 			}
 			else{
 				SetColor(4);
-				printf("\nFuncionário não reconhecido\n");
+				printf("\nFuncionÃ¡rio nÃ£o reconhecido\n");
 				SetColor(15);
 				break;
 			}
@@ -417,7 +417,7 @@ int main () {
 	setlocale(LC_ALL,"Portuguese");
 	while(testehorario->tm_hour >=8 && testehorario->tm_hour <21)
 	{
-	printf("Sistema automático de senhas,\nFaça login no sistema\nDigite 'sair' no username ou na password para sair \n");
+	printf("Sistema automÃ¡tico de senhas,\nFaÃ§a login no sistema\nDigite 'sair' no username ou na password para sair \n");
 	do{	
 		printf("\nUsername: ");
 		fflush(stdin);
@@ -469,7 +469,7 @@ int main () {
 							break;
 						case 4:
 							//gerarMapas(mapa);
-							printf("\nFuncão ainda nao implementada!\n");
+							printf("\nFuncÃ£o ainda nao implementada!\n");
 							time(&segundos);
 							testehorario=localtime(&segundos);
 							
@@ -478,7 +478,7 @@ int main () {
 							return 0;
 						default:
 							SetColor(4);
-							printf("\nEscolha inválida.\n");
+							printf("\nEscolha invÃ¡lida.\n");
 							fflush(stdin);
 							SetColor(15);
 						}
@@ -486,14 +486,14 @@ int main () {
 				}
 				else{
 						SetColor(4);
-						printf("\n\nPassWord inválida.\n");
+						printf("\n\nPassWord invÃ¡lida.\n");
 						SetColor(15);
 				}
 			}while(1);
 		}
 		else{
 				SetColor(4);
-				printf("\nUsername inválido.\n");
+				printf("\nUsername invÃ¡lido.\n");
 				SetColor(15);
 		}
 	}while(1);
