@@ -16,7 +16,6 @@
 #define HOR_ABERTURA 8 // horário de abertura
 #define HOR_FECHO 24 // horário de fecho
 
-// Diogo - 454 ----- Ângelo - 532 -------- Tiago - 608
  
 typedef struct ticket { //info dos tickets
 	int num;
